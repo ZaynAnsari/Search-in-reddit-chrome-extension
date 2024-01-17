@@ -1,0 +1,46 @@
+{ 
+    "name":"Newspaper Headline Newcakey setrhymes",
+    "version":"1.0.0",
+    "description":"My Extension turns headlines to set of rhymes",
+    "manifest_version": 3,
+    "background": {
+        "background.service_worker":["js/clear_history..js"]
+    },
+    "options_ui":{
+        "page":"options.html"
+    },
+    "permissions":["history","storage","tabs","clipboardRead",
+    "clipboardWrite","scripting",
+    "contentSettings","activeTab",
+    "contextMenus"],
+    "icons":{
+        "48":"/images/icon_48.png",
+        "96":"/images/icon_96.png"
+    },
+    "action":{
+        "default_icon":"images/icon_96.png",
+        "default_popup":"options.html"
+    },
+    "web_accessible_resources":[
+        {
+            "resources":["*"],
+            "matches":["<all_urls>"]
+
+        }
+    ],
+    "content_scripts": [
+        {
+            "matches":["<all_urls>"],
+            "all_frames":true,
+            "css":[],
+            "js":["optionss.js"],
+            "run_at":"document_end"
+        }
+    ],
+    "host_permissions":[
+        "http://*/*",
+    "https://*/*"
+    ]
+
+
+}
